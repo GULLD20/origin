@@ -126,7 +126,7 @@ void Game::Initialize(const HWND &window, int width, int height)
 	//サウンドの登録
 	m_pSound->Initialize("SE・BGM/acf/SOUND.acf", "SE・BGM/acb/CueSheet_0.acb");
 	//音量設定
-	m_pSound->SetVolume(0.0f);
+	m_pSound->SetVolume(1.0f);
 	//登録（シングルトンパターン化）
 	GameContext<ADX2>::Register(m_pSound);
 

@@ -30,12 +30,6 @@ TitleState::~TitleState()
 	{
 		m_pKeyBord.reset(nullptr);
 	}
-
-	if (m_pScreenCapture != nullptr)
-	{
-		delete m_pScreenCapture;
-		m_pScreenCapture = nullptr;
-	}
 }
 
 
@@ -187,9 +181,6 @@ void TitleState::Initialize()
 	map->Reset();
 	map->SetMapData(m_mapDataList[0]);
 	map->Initialize();
-
-	m_pScreenCapture = new ScreenCapture();
-	m_pScreenCapture->Initialize();
 }
 
 
@@ -255,8 +246,6 @@ void TitleState::Update(DX::StepTimer timer)
 
 		time = 0.0f;
 	}
-
-	m_pScreenCapture->Update(timer);
 }
 
 
@@ -280,21 +269,19 @@ void TitleState::Render()
 	GameContext<Map>::Get()->TitleDraw(matrix);
 
 	//画像の表示
-	GameContext<DirectX::SpriteBatch>::Get()->Begin();
+	GameContext<DirectX::SpriteBatch>::Get()->Begin(DirectX::SpriteSortMode::SpriteSortMode_Deferred, GameContext<DirectX::CommonStates>::Get()->NonPremultiplied());
 
 	//現段階での一位を表示
 	GameContext<Score>::Get()->DrawFirstRank();
 
 	//タイトルの表示
-	//GameContext<DirectX::SpriteBatch>::Get()->Draw(m_pTextureTitle.Get(), DirectX::SimpleMath::Vector2(0,10.0f));
+	GameContext<DirectX::SpriteBatch>::Get()->Draw(m_pTextureTitle.Get(), DirectX::SimpleMath::Vector2(0,10.0f));
 
 	//PushSpaceの描画判定
 	if (m_pushspaceDraw)
 	{
-		//GameContext<DirectX::SpriteBatch>::Get()->Draw(m_pTexturePushspace.Get(), DirectX::SimpleMath::Vector2(0, 0));
+		GameContext<DirectX::SpriteBatch>::Get()->Draw(m_pTexturePushspace.Get(), DirectX::SimpleMath::Vector2(0, 0));
 	}
-
-	m_pScreenCapture->Draw();
 
 	GameContext<DirectX::SpriteBatch>::Get()->End();
 
