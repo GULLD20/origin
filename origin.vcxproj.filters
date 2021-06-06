@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>7cf4b472-8484-44de-85e2-a314f93ba7a5</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>d78ead07-6b97-4190-ae68-f9411f788dff</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dds;dlg;fbx;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="DebugObj">
+      <UniqueIdentifier>{7f657e5f-2cfa-4471-a6cc-2d4f6dc7b5c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{1195b138-6b65-428a-b1e0-65952a7b6974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{eec719d3-c4b3-44ab-b96c-548f2f9b664a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataManager">
+      <UniqueIdentifier>{39b85761-9c56-4892-ad5c-227690d09827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{653ad305-7218-48d0-8492-6fec0a098c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{d41ef782-3da5-42f1-a097-9ac3e512cecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SE・BGM">
+      <UniqueIdentifier>{3dcf1966-9b4d-442d-9d68-6cbe52bccdce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyLib">
+      <UniqueIdentifier>{e15bfbe9-9d5d-4a9b-b0ce-5553fb156b93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect">
+      <UniqueIdentifier>{ff496b57-fb88-4cb3-9495-b10da43685e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect3D">
+      <UniqueIdentifier>{9e4aea9d-ac73-4f05-9ef3-26ac21c8b283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D">
+      <UniqueIdentifier>{a383bb4b-c3f8-42a6-8978-c92fbf3d50dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Aspect">
+      <UniqueIdentifier>{7f0c836b-4c0b-440f-b7f9-4eca5ece2533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{b5bf7d5e-11d2-4b4e-9fef-d736e25d0aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Character">
+      <UniqueIdentifier>{e7c5b6ff-7478-4f0d-a256-99c61a37f317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy">
+      <UniqueIdentifier>{dc7f9211-1f9a-49a0-b40c-d1d2ff1ee108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\List">
+      <UniqueIdentifier>{2dd8f6e4-4344-4dd9-bee0-b7961e345b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player">
+      <UniqueIdentifier>{4c439f67-cb81-46ba-a20b-04dfc1283adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Weapon">
+      <UniqueIdentifier>{f6b07437-e355-4f58-9e0d-23d68b1fb4fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Weapon\Spear">
+      <UniqueIdentifier>{6c149433-cb21-4e93-b8f1-e56dde801b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Weapon\Sword">
+      <UniqueIdentifier>{92d2024c-5c66-476e-aa90-213da3edad77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Weapon\Bow">
+      <UniqueIdentifier>{c5fb9512-5f14-432a-8fee-a981923138b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SE・BGM\acb">
+      <UniqueIdentifier>{2a376740-2561-45fa-80ba-268a2b3e8076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SE・BGM\acf">
+      <UniqueIdentifier>{60da8f27-8ca3-40fb-bff1-08aa6fe7f0ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Goblin">
+      <UniqueIdentifier>{fc4a6049-2870-469f-a3d3-4da86af0d472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\LongRange">
+      <UniqueIdentifier>{0781d503-8ce0-4278-864c-fd759ae401fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Stamp">
+      <UniqueIdentifier>{4a5beddf-222d-4f53-a7ca-903b09a5ee28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Rowling">
+      <UniqueIdentifier>{e56e34d5-e006-4e62-800d-25f5b0bfb1b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Params">
+      <UniqueIdentifier>{5b6e4440-b743-4e1c-aa52-1600e7a43a7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stage">
+      <UniqueIdentifier>{473dece7-050f-4690-8336-60851e5f2a7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stage\Stage1">
+      <UniqueIdentifier>{b452c595-8b9f-4fed-b112-9cbc7fffeb99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\LongRangeAttack">
+      <UniqueIdentifier>{b2a370e4-d97f-4cef-a9dd-55a488132079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\LongRangeRowling">
+      <UniqueIdentifier>{ca827565-5fc0-4755-b96e-e264393139d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D\Enemy">
+      <UniqueIdentifier>{349ca886-c6e6-4f53-8506-ff8a29e717d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D\Fade">
+      <UniqueIdentifier>{3b1f3efd-fab1-457f-a61d-e6aa90bff46c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D\HitWall">
+      <UniqueIdentifier>{c273a9c8-2d4b-4e85-b4d2-13cf75fe66a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D\HP">
+      <UniqueIdentifier>{7e26211d-3ff3-4488-bfa6-69657a37e3a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D\Purpose">
+      <UniqueIdentifier>{37edc9b8-e103-4eca-b033-04b76edaf4ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect3D\SlashingEffect">
+      <UniqueIdentifier>{9d0386a8-c821-42f0-93f7-29272db08ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScreenCapture">
+      <UniqueIdentifier>{251e324e-282b-4802-8dfd-2de29b1592d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{9816af3b-7ad4-47ae-bd4c-b78cbd8ce377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyEffect\Effect2D\ScreenBlur">
+      <UniqueIdentifier>{f0f3dd33-b5e9-4a61-ba1f-627809cf2319}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="StepTimer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceResources.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugObj\DebugCamera.h">
+      <Filter>DebugObj</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugObj\DebugCapsule.h">
+      <Filter>DebugObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera\FollowCamera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager\DataManager.h">
+      <Filter>DataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Map.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugObj\GridFloor.h">
+      <Filter>DebugObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\GameContext.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\GameState.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\PauseState.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\PlayState.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\TitleState.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Utilities.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\GameStateManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Projection.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\ResultState.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugObj\DebugFont.h">
+      <Filter>DebugObj</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Time.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Score.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SE・BGM\Adx2.h">
+      <Filter>SE・BGM</Filter>
+    </ClInclude>
+    <ClInclude Include="SE・BGM\Singleton.h">
+      <Filter>SE・BGM</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\EnemyHP.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Shutter.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\DarwName.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\Collision.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Effect2D.h">
+      <Filter>MyEffect\Effect2D</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect3D\Effect3D.h">
+      <Filter>MyEffect\Effect3D</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\BinaryFile.h">
+      <Filter>MyEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Myeffect.h">
+      <Filter>MyEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Aspect.h">
+      <Filter>Aspect</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Character\Character.h">
+      <Filter>Character\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\Enemy.h">
+      <Filter>Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\List\CharacterMapList.h">
+      <Filter>Character\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Player.h">
+      <Filter>Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Weapon\CreateWeapon.h">
+      <Filter>Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Weapon\Bow\Bow.h">
+      <Filter>Character\Player\Weapon\Bow</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Weapon\Spear\Spear.h">
+      <Filter>Character\Player\Weapon\Spear</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Weapon\Sword\Sword.h">
+      <Filter>Character\Player\Weapon\Sword</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Weapon\Weapon.h">
+      <Filter>Character\Player\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player\Weapon\WeaponType.h">
+      <Filter>Character\Player\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ResultFade.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SE・BGM\acb\CueSheet_0.h">
+      <Filter>SE・BGM\acb</Filter>
+    </ClInclude>
+    <ClInclude Include="SE・BGM\acf\SOUND_acf.h">
+      <Filter>SE・BGM\acf</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\Goblin\Goblin.h">
+      <Filter>Character\Enemy\Goblin</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\LongRange\LongRange.h">
+      <Filter>Character\Enemy\LongRange</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\Rowling\Rowling.h">
+      <Filter>Character\Enemy\Rowling</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\Stamp\Stamp.h">
+      <Filter>Character\Enemy\Stamp</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Params\Params.h">
+      <Filter>Character\Params</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage\Stage.h">
+      <Filter>Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage\Stage1\Stage1.h">
+      <Filter>Stage\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\LongRangeAttack\LongRangeAttack.h">
+      <Filter>Character\Enemy\LongRangeAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy\LongRangeRowling\LongRangeRowling.h">
+      <Filter>Character\Enemy\LongRangeRowling</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Enemy\AttackArea.h">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Enemy\AttackLine.h">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Enemy\EnemyDeth.h">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Enemy\EnemyHit.h">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Fade\Black.h">
+      <Filter>MyEffect\Effect2D\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Fade\Fade.h">
+      <Filter>MyEffect\Effect2D\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\HP\HPGuage.h">
+      <Filter>MyEffect\Effect2D\HP</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\Purpose\Purpose.h">
+      <Filter>MyEffect\Effect2D\Purpose</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\HitWall\HitWall.h">
+      <Filter>MyEffect\Effect2D\HitWall</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect3D\SlashingEffect\SlashEffect.h">
+      <Filter>MyEffect\Effect3D\SlashingEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenCapture\ScreenCapture.h">
+      <Filter>ScreenCapture</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEffect\Effect2D\ScreenBlur\ScreenBlur.h">
+      <Filter>MyEffect\Effect2D\ScreenBlur</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\MyLib.h">
+      <Filter>MyLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="DeviceResources.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugObj\DebugCamera.cpp">
+      <Filter>DebugObj</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugObj\DebugCapsule.cpp">
+      <Filter>DebugObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\FollowCamera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager\DataManager.cpp">
+      <Filter>DataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugObj\GridFloor.cpp">
+      <Filter>DebugObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\GameStateManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\PauseState.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\PlayState.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\TitleState.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\ResultState.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugObj\DebugFont.cpp">
+      <Filter>DebugObj</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Time.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Score.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SE・BGM\Adx2.cpp">
+      <Filter>SE・BGM</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\EnemyHP.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Shutter.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\DarwName.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLib\Collision.cpp">
+      <Filter>MyLib</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Effect2D.cpp">
+      <Filter>MyEffect\Effect2D</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect3D\Effect3D.cpp">
+      <Filter>MyEffect\Effect3D</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\BinaryFile.cpp">
+      <Filter>MyEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\MyEffect.cpp">
+      <Filter>MyEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="Aspect.cpp">
+      <Filter>Aspect</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Character\Character.cpp">
+      <Filter>Character\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\Enemy.cpp">
+      <Filter>Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\List\CharacterMapList.cpp">
+      <Filter>Character\List</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Player\Player.cpp">
+      <Filter>Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Player\Weapon\Bow\Bow.cpp">
+      <Filter>Character\Player\Weapon\Bow</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Player\Weapon\Spear\Spear.cpp">
+      <Filter>Character\Player\Weapon\Spear</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Player\Weapon\Sword\Sword.cpp">
+      <Filter>Character\Player\Weapon\Sword</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Player\Weapon\Weapon.cpp">
+      <Filter>Character\Player\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ResultFade.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\Goblin\Goblin.cpp">
+      <Filter>Character\Enemy\Goblin</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\LongRange\LongRange.cpp">
+      <Filter>Character\Enemy\LongRange</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\Rowling\Rowling.cpp">
+      <Filter>Character\Enemy\Rowling</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\Stamp\Stamp.cpp">
+      <Filter>Character\Enemy\Stamp</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Params\Params.cpp">
+      <Filter>Character\Params</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage\Stage.cpp">
+      <Filter>Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage\Stage1\Stage1.cpp">
+      <Filter>Stage\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\LongRangeAttack\LongRangeAttack.cpp">
+      <Filter>Character\Enemy\LongRangeAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy\LongRangeRowling\LongRangeRowling.cpp">
+      <Filter>Character\Enemy\LongRangeRowling</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Enemy\AttackArea.cpp">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Enemy\AttackLine.cpp">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Enemy\EnemyDeth.cpp">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Enemy\EnemyHit.cpp">
+      <Filter>MyEffect\Effect2D\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Fade\Black.cpp">
+      <Filter>MyEffect\Effect2D\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Fade\Fade.cpp">
+      <Filter>MyEffect\Effect2D\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\HP\HPGuage.cpp">
+      <Filter>MyEffect\Effect2D\HP</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\Purpose\Purpose.cpp">
+      <Filter>MyEffect\Effect2D\Purpose</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\HitWall\HitWall.cpp">
+      <Filter>MyEffect\Effect2D\HitWall</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect3D\SlashingEffect\SlashEffect.cpp">
+      <Filter>MyEffect\Effect3D\SlashingEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenCapture\ScreenCapture.cpp">
+      <Filter>ScreenCapture</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEffect\Effect2D\ScreenBlur\ScreenBlur.cpp">
+      <Filter>MyEffect\Effect2D\ScreenBlur</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLib\MyLib.cpp">
+      <Filter>MyLib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="directx.ico">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="settings.manifest">
+      <Filter>Assets</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Resources\Model\Player\testSword.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Map\space.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Character.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Enemy\LongRangeAttack.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Enemy\LongRange.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Enemy\Rowling.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Enemy\Stamp.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Enemy\Goblin.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Map\mapPart1.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Enemy\LongRangeRowling.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Shadow.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Resources\Model\Map\mapPart2.fbx">
+      <Filter>Assets</Filter>
+    </MeshContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PixelShader.inc" />
+    <None Include="VertexShader.inc" />
+    <None Include="Resources\CSV\letter.csv">
+      <Filter>UI</Filter>
+    </None>
+    <None Include="HLSL\Particle.hlsli">
+      <Filter>HLSL</Filter>
+    </None>
+    <None Include="Resources\CSV\map1.csv">
+      <Filter>Assets</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="HLSL\ParticleGS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSBlack.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSEnemyAttackArea.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSEnemyDeth.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSFade.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSHPGuage.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSPurpose.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticleVS.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSEnemyHit.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSEnemyAttackLine.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSHitWall.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\ParticlePSScreenBlur.hlsl">
+      <Filter>HLSL</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

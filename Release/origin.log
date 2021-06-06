@@ -1,0 +1,30 @@
+﻿  Resources\Model\Character.fbx
+  Resources\Model\Enemy\goblin1.fbx
+  Resources\Model\Enemy\LongRange.fbx
+  Resources\Model\Enemy\LongRangeAttack.fbx
+  Resources\Model\Enemy\Rowling.fbx
+  Resources\Model\Enemy\Stamp.fbx
+  Resources\Model\Map\mapColiseumTest.fbx
+  Resources\Model\Map\space.fbx
+  Resources\Model\Map\wallColiseumTest.fbx
+  Resources\Model\Player\player.fbx
+  Resources\Model\Player\testSword.fbx
+  Game.cpp
+  PlayState.cpp
+Scene\PlayState.cpp(149): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(177): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(187): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(226): warning C4018: '>=': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(242): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(254): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(264): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(286): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Scene\PlayState.cpp(317): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Enemy.cpp
+  HPGuage.cpp
+MyEffect\Effect2D\HPGuage.cpp(164): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+MyEffect\Effect2D\HPGuage.cpp(238): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Goblin.cpp
+  LongRange.cpp
+Character\Enemy\LongRange\LongRange.cpp(89): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+LINK : fatal error LNK1181: 入力ファイル 'DirectxTK.lib' を開けません。
