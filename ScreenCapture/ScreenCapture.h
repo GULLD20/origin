@@ -32,7 +32,7 @@ private:
 	//D3D10_TEXTURE2D_DESCでレンダーターゲットビューと宣言する
 	D3D11_TEXTURE2D_DESC                              m_screenData;
 	//レンダーターゲットテクスチャ
-	ID3D11Texture2D *                                 m_pRenderTexture;
+	Microsoft::WRL::ComPtr<ID3D11Texture2D>           m_pRenderTexture;
 	//レンダーターゲットビュー
 	ID3D11RenderTargetView *                          m_pRenderTargetView;
 
