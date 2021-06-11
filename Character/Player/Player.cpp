@@ -24,16 +24,16 @@
 const DirectX::SimpleMath::Vector3 Player::PLAYER_TOP_DOWN = DirectX::SimpleMath::Vector3(0.0f, 0.5f, 0.0f);
 
 //回避時間
-const float Player::AVOIDANCETIME = 0.15f;
+const float Player::AVOIDANCE_TIME = 0.15f;
 //回避のクールタイム
-const float Player::AVOIDANCECOOLTIME = 0.5f;
+const float Player::AVOIDANCE_COOL_TIME = 0.5f;
 //吹っ飛ばされる時間
 const float Player::BLOW_AWAY_TIME = 0.25f;
 //無敵時間
 const float Player::INVINCIBLE_TIME = 2.0f;
 
 //エネミーを吹っ飛ばす力(1秒間に)
-const float Player::BLOWAWAYPOWER_ENEMYTARGET = 40.0f;
+const float Player::BLOW_AWAY_POWER_ENEMYTARGET = 40.0f;
 
 Player::Player(const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRange)
 	: Character(GetNextID(),pos,attack,hp,speed,thisRange)
@@ -147,7 +147,7 @@ void Player::Initialize()
 	//最大のＨＰをエフェクト渡す
 	m_pHPGauge->SetMaxHP(m_charaData.hp);
 	//回避時間
-	m_avoidance.TimeCount = 0.0f;
+	m_avoidance.timer = 0.0f;
 	//回避時の速さ
 	m_avoidance.spead = GetSpeed()*3.0f;
 	//回避のクールタイム
@@ -162,7 +162,7 @@ void Player::Initialize()
 	//無敵判定の初期化
 	m_invincible = false;
 	//無敵時間の初期化
-	m_invincibleTime = 0.0f;
+	m_invincibleTimer = 0.0f;
 	//無敵時間時のフレーム計算の初期化
 	m_invincibleFrameCount = 0;
 	//1フレームにかかった時間(合計すると1秒になる)
@@ -181,7 +181,7 @@ void Player::Initialize()
 	//吹っ飛ぶ力(1秒間)
 	m_blowAwayPower = 0.0f;
 	//吹っ飛び時間の計測
-	m_blowAwayTime = 0.0f;
+	m_blowAwayTimer = 0.0f;
 }
 
 //更新処理
@@ -300,6 +300,8 @@ void Player::Damage(float attack, const DirectX::SimpleMath::Matrix &rotation, b
 	//無敵状態の時はダメージ処理をしない
 	if (m_invincible) return;
 
+	if (GetState() == State::Avoidance)return;
+
 	//体力を攻撃力分減らす
 	m_charaData.hp -= attack;
 
@@ -323,14 +325,14 @@ void Player::InvincibleUpdate()
 	if (m_invincible)
 	{
 		//無敵時間終了処理
-		if (m_invincibleTime >= INVINCIBLE_TIME)
+		if (m_invincibleTimer >= INVINCIBLE_TIME)
 		{
 			m_invincible = false;
 			m_invincibleFrameCount = 0;
-			m_invincibleTime = 0.0f;
+			m_invincibleTimer = 0.0f;
 		}
 		//無敵時間の計算
-		m_invincibleTime += m_elapsedTime;
+		m_invincibleTimer += m_elapsedTime;
 		//無敵時間のフレーム計算
 		m_invincibleFrameCount++;
 	}
@@ -573,17 +575,17 @@ void Player::AvoidanceUpdate()
 		//回避状態
 		m_avoidance.Check = true;
 		//回避時間の計測
-		m_avoidance.TimeCount += m_elapsedTime;
+		m_avoidance.timer += m_elapsedTime;
 
 		//回避の終了判定
-		if (m_avoidance.TimeCount >= AVOIDANCETIME)
+		if (m_avoidance.timer >= AVOIDANCE_TIME)
 		{
 			//もう一度回避ができるまでの時間
-			m_avoidance.coolTimeCount = AVOIDANCECOOLTIME;
+			m_avoidance.coolTimeCount = AVOIDANCE_COOL_TIME;
 			//状態の初期化
 			m_charaData.state = State::Idle;
 			//回避時間を計測する変数の初期化
-			m_avoidance.TimeCount = 0.0f;
+			m_avoidance.timer = 0.0f;
 			//回避終了判定
 			m_avoidance.Check = false;
 		}
@@ -696,7 +698,7 @@ void Player::HitAttack(int id)
 				blowAway = true;
 			}
 			//テスト用に10倍
-			list->GetEntityFromID(id)->Damage(m_charaData.attack*10, m_charaData.rotation, blowAway, BLOWAWAYPOWER_ENEMYTARGET);
+			list->GetEntityFromID(id)->Damage(m_charaData.attack*10, m_charaData.rotation, blowAway, BLOW_AWAY_POWER_ENEMYTARGET);
 			m_hitAttack = true;
 		}
 	}
@@ -745,16 +747,18 @@ void Player::BlowAwayMove()
 		//移動処理
 		m_charaData.pos += (vec*m_elapsedTime);
 
-		if (m_blowAwayTime >= BLOW_AWAY_TIME)
+		//吹っ飛び状態の終了
+		if (m_blowAwayTimer >= BLOW_AWAY_TIME)
 		{
 			m_charaData.state = State::Idle;
 			m_blowAwayRotation = DirectX::SimpleMath::Matrix::Identity;
 			m_blowAwayPower = 0.0f;
-			m_blowAwayTime = 0.0f;
+			m_blowAwayTimer = 0.0f;
 		}
 		else
 		{
-			m_blowAwayTime += m_elapsedTime;
+			//吹っ飛び終了までの時間計算
+			m_blowAwayTimer += m_elapsedTime;
 		}
 	}
 }
@@ -803,8 +807,7 @@ void Player::MatrixSetting()
 //キー入力
 void Player::InputKey()
 {
-	DirectX::Keyboard::State state = DirectX::Keyboard::Get().GetState();
-
+	//キー入力の無効
 	if (m_charaData.state == State::Avoidance)
 	{
 		return;
@@ -820,17 +823,25 @@ void Player::InputKey()
 		return;
 	}
 
+	DirectX::Keyboard::State keyState = DirectX::Keyboard::Get().GetState();
+
+	DirectX::Mouse::State mouseState = DirectX::Mouse::Get().GetState();
+
+	//状態の初期化
 	m_charaData.state = State::Idle;
+	//キーの入力ベクトルの初期化
 	m_inputKeyVec = DirectX::SimpleMath::Vector3::Zero;
 
-	if (!state.W && !state.A && !state.S && !state.D)
+	//移動用のキーを押していないとき
+	if (!keyState.W && !keyState.A && !keyState.S && !keyState.D)
 	{
 		//移動停止判定
 		m_moveCheck = false;
 	}
 
 	//キー入力  移動
-	if (state.W)
+	//前に移動
+	if (keyState.W)
 	{
 		//移動判定
 		m_moveCheck = true;
@@ -840,7 +851,8 @@ void Player::InputKey()
 		m_charaData.state = State::Move;
 	}
 
-	if (state.D)
+	//右に移動
+	if (keyState.D)
 	{
 		//移動判定
 		m_moveCheck = true;
@@ -850,7 +862,8 @@ void Player::InputKey()
 		m_charaData.state = State::Move;
 	}
 
-	if (state.A)
+	//左に移動
+	if (keyState.A)
 	{
 		//移動判定
 		m_moveCheck = true;
@@ -860,7 +873,8 @@ void Player::InputKey()
 		m_charaData.state = State::Move;
 	}
 
-	if (state.S)
+	//後ろに移動
+	if (keyState.S)
 	{
 		//移動判定
 		m_moveCheck = true;
@@ -871,20 +885,21 @@ void Player::InputKey()
 	}
 
 	//攻撃
-	if (state.C && !m_attackKeyDown)
+	if (mouseState.leftButton && !m_attackKeyDown)
 	{
 		m_attack = true;
 		m_charaData.state = State::Attack;
 		m_attackKeyDown = true;
 	}
-	else if(!state.C)
+	else if(!mouseState.leftButton)
 	{
 		m_attackKeyDown = false;
 	}
 
 	//回避
-	if (state.Space)
+	if (keyState.Space)
 	{
+		//回避可能か判定
 		if (m_avoidance.coolTimeCount <= 0.0f)
 		{
 			m_charaData.state = State::Avoidance;

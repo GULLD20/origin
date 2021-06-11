@@ -68,7 +68,7 @@ void ScreenCapture::Initialize()
 //更新
 void ScreenCapture::Update(DX::StepTimer timer)
 {
-	//TextureSetting();
+	TextureSetting();
 	//m_pScreenBlur->Update(timer);
 }
 
@@ -79,7 +79,7 @@ void ScreenCapture::Draw()
 	//m_pScreenBlur->SetRenderState(DirectX::SimpleMath::Vector3::Zero, DirectX::SimpleMath::Matrix::Identity, DirectX::SimpleMath::Matrix::Identity);
 	//m_pScreenBlur->Render();
 
-	//GameContext<DirectX::SpriteBatch>::Get()->Draw(m_pTexture.Get(), RECT{0,0,1000,1000});
+	GameContext<DirectX::SpriteBatch>::Get()->Draw(m_pTexture.Get(), RECT{0,0,1000,1000});
 }
 
 //リセット
@@ -129,18 +129,18 @@ void ScreenCapture::TextureSetting()
 
 
 	
-	//(2)バックバッファのフォーマットを取得//
-	ID3D11Texture2D* pBackBuffer = nullptr;
-	HRESULT hr = deviceResources->GetSwapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
-	if (FAILED(hr)) return;
+	////バックバッファのフォーマットを取得//
+	//ID3D11Texture2D* pBackBuffer = nullptr;
+	//HRESULT hr = deviceResources->GetSwapChain()->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
+	//if (FAILED(hr)) return;
+	//
+	//D3D11_TEXTURE2D_DESC descBackBuffer;
+	//pBackBuffer->GetDesc(&descBackBuffer);
+	//pBackBuffer->Release();
 
-	D3D11_TEXTURE2D_DESC descBackBuffer;
-	pBackBuffer->GetDesc(&descBackBuffer);
-	pBackBuffer->Release();
 
-
-	//(3)CPU読み出し可能なバッファをGPU上に作成//
-	D3D11_TEXTURE2D_DESC Texture2DDesc;
+	////CPU読み出し可能なバッファをGPU上に作成//
+	//D3D11_TEXTURE2D_DESC Texture2DDesc;
 	//Texture2DDesc.ArraySize = 1;
 	//Texture2DDesc.BindFlags = 0;
 	//Texture2DDesc.CPUAccessFlags = D3D11_CPU_ACCESS_READ;
@@ -159,7 +159,7 @@ void ScreenCapture::TextureSetting()
 	//device->CreateTexture2D(&Texture2DDesc, 0, &hCaptureTexture);
 	//
 	//
-	////(4)作成したCPU読み込み可能バッファにGPU上でデータをコピー//
+	////作成したCPU読み込み可能バッファにGPU上でデータをコピー//
 	//ID3D11Resource *hResource;
 	//ID3D11RenderTargetView* pRenderTargetView;
 	//device->CreateRenderTargetView(hCaptureTexture, NULL, &pRenderTargetView);
@@ -167,18 +167,18 @@ void ScreenCapture::TextureSetting()
 	//deviceResources->GetD3DDeviceContext()->CopyResource(hCaptureTexture, hResource);
 	//hResource->Release();
 	//
-	////(5)GPU上の読み込み可能バッファのメモリアドレスのマップを開く//
+	////GPU上の読み込み可能バッファのメモリアドレスのマップを開く//
 	//D3D11_MAPPED_SUBRESOURCE mappedResource;
 	//deviceResources->GetD3DDeviceContext()->Map(hCaptureTexture, 0, D3D11_MAP_READ, 0, &mappedResource);
 	//
-	////(6)CPU上のメモリにバッファを確保//
+	////CPU上のメモリにバッファを確保//
 	//double width = descBackBuffer.Width;
 	//double height = descBackBuffer.Height;
 	//double src_stride = mappedResource.RowPitch;    //(注)descBackBuffer.Width * 4とは必ずしも一致しない
 	//size_t buffer_size = src_stride * height;
 	//BYTE *bmp_buffer = new BYTE[buffer_size];
 	//
-	////(7)GPU上の読み込み可能バッファからCPU上のバッファへ転送//
+	////GPU上の読み込み可能バッファからCPU上のバッファへ転送//
 	//CopyMemory(bmp_buffer, mappedResource.pData, buffer_size);
 	//deviceResources->GetD3DDeviceContext()->Unmap(hCaptureTexture, 0);
 	//hCaptureTexture->Release();

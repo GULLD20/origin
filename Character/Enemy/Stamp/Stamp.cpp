@@ -10,7 +10,7 @@
 #include "../../Map/Map.h"
 
 //攻撃範囲
-const float Stamp::ATTACKRANGE = 3.0f;
+const float Stamp::ATTACK_RANGE = 3.0f;
 //ジャンプの時間
 const float Stamp::ATTACKJUMPTIME = 0.25f ;
 //攻撃時の移動の時間
@@ -101,11 +101,11 @@ void Stamp::SubInitialize()
 	m_blowAway = true;
 
 	//攻撃のジャンプの時間計測
-	m_attackJumpTime = 0.0f;
+	m_attackJumpTimer = 0.0f;
 	//攻撃の移動の時間計測
-	m_attackMoveTime = 0.0f;
+	m_attackMoveTimer = 0.0f;
 	//攻撃の落下の時間計測
-	m_attackFallTime = 0.0f;
+	m_attackFallTimer = 0.0f;
 
 	//攻撃時の各判定の初期化
 	//ジャンプ終了
@@ -141,7 +141,7 @@ void Stamp::EffectInitialize()
 
 	//攻撃範囲の初期化
 	m_pAttackArea->InitializeNormal(5, DirectX::SimpleMath::Vector3(0, 0, 0));
-	m_pAttackArea->SetScale(DirectX::SimpleMath::Vector3(ATTACKRANGE, 1.0f, ATTACKRANGE));
+	m_pAttackArea->SetScale(DirectX::SimpleMath::Vector3(ATTACK_RANGE, 1.0f, ATTACK_RANGE));
 
 	//攻撃が当たった時の演出(プレイヤーの攻撃がエネミーに当たったら)の初期化
 	m_pEnemyHit->InitializeNormal(1, DirectX::SimpleMath::Vector3::Zero);
@@ -336,7 +336,7 @@ void Stamp::Attack()
 	{
 		m_charaData.thisCapsule.startPos,
 		m_charaData.thisCapsule.endPos,
-		ATTACKRANGE,
+		ATTACK_RANGE,
 	};
 
 	float areaS = blowArea.startPos.y - (m_charaData.thisCapsule.range*0.5f);
@@ -487,7 +487,7 @@ void Stamp::EndAttack()
 {
 	//攻撃判定初期化
 	m_attack_start_end = false;
-	m_attackTime = 0.0f;
+	m_attackTimer = 0.0f;
 	m_attackInterval = 0.0f;
 	m_charaData.state = State::Idle;
 
@@ -505,9 +505,9 @@ void Stamp::EndAttack()
 	};
 
 	//各時間の初期化
-	m_attackJumpTime = 0.0f;
-	m_attackMoveTime = 0.0f;
-	m_attackFallTime = 0.0f;
+	m_attackJumpTimer = 0.0f;
+	m_attackMoveTimer = 0.0f;
+	m_attackFallTimer = 0.0f;
 
 	//各判定の初期化
 	m_attackJump = false;
@@ -527,11 +527,11 @@ void Stamp::EndAttack()
 void Stamp::AttackJump()
 {
 	//上昇処理
-	m_charaData.pos.y = MyLib::Lerp(0.0f, ATTACKTOPPOS, m_attackJumpTime / static_cast<float>(ATTACKJUMPTIME));
-	m_attackJumpTime += m_elapsedTime;
+	m_charaData.pos.y = MyLib::Lerp(0.0f, ATTACKTOPPOS, m_attackJumpTimer / static_cast<float>(ATTACKJUMPTIME));
+	m_attackJumpTimer += m_elapsedTime;
 
 	//ジャンプ終了
-	if (m_attackJumpTime >= ATTACKJUMPTIME)
+	if (m_attackJumpTimer >= ATTACKJUMPTIME)
 	{
 		m_startMovePos = m_charaData.pos;
 
@@ -542,11 +542,11 @@ void Stamp::AttackJump()
 void Stamp::AttackMove()
 {
 	//ジャンプ終了時のプレイヤーの位置の上に移動
-	m_charaData.pos = DirectX::SimpleMath::Vector3::Lerp(m_startMovePos, m_jumpDestination, (m_attackMoveTime / ATTACKMOVETIME));
-	m_attackMoveTime+= m_elapsedTime;
+	m_charaData.pos = DirectX::SimpleMath::Vector3::Lerp(m_startMovePos, m_jumpDestination, (m_attackMoveTimer / ATTACKMOVETIME));
+	m_attackMoveTimer+= m_elapsedTime;
 
 	//移動の終了
-	if (m_attackMoveTime >= ATTACKMOVETIME)
+	if (m_attackMoveTimer >= ATTACKMOVETIME)
 	{
 		m_attackMove = true;
 	}
@@ -555,14 +555,14 @@ void Stamp::AttackMove()
 void Stamp::AttackFall()
 {
 	//落下処理(真下に移動)
-	m_charaData.pos.y = MyLib::Lerp(ATTACKTOPPOS, 0.0f, (m_attackFallTime / ATTACKFALLTIME));
-	m_attackFallTime += m_elapsedTime;
+	m_charaData.pos.y = MyLib::Lerp(ATTACKTOPPOS, 0.0f, (m_attackFallTimer / ATTACKFALLTIME));
+	m_attackFallTimer += m_elapsedTime;
 
 	//地面に当たるタイミング(半径が0.5fなため0.5fをかける)
-	m_pAttackArea->SetTimming((m_attackFallTime / ATTACKFALLTIME)*0.5f);
+	m_pAttackArea->SetTimming((m_attackFallTimer / ATTACKFALLTIME)*0.5f);
 
 	//攻撃時間が終了したら
-	if (m_attackFallTime >= ATTACKFALLTIME)
+	if (m_attackFallTimer >= ATTACKFALLTIME)
 	{
 		m_endAttack = true;
 	}

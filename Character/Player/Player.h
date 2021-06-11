@@ -24,21 +24,23 @@ enum class WeaponType;
 
 class ADX2;
 
-struct AvoidanceData
-{
-	//回避時間計測
-	float TimeCount;
-	//回避時の速さ
-	float spead;
-	//クールタイム
-	float coolTimeCount;
-	//回避したか判定
-	bool Check;
-};
-
 class Player:public Character
 {
-public:  //enum・定数
+public:  //struct・enum・定数
+
+	//回避関連のデータ
+	struct AvoidanceData
+	{
+		//回避時間計測
+		float timer;
+		//回避時の速さ
+		float spead;
+		//クールタイム
+		float coolTimeCount;
+		//回避したか判定
+		bool Check;
+	};
+
 	//方向
 	enum Dir
 	{
@@ -53,16 +55,16 @@ public:  //enum・定数
 	const static DirectX::SimpleMath::Vector3 PLAYER_TOP_DOWN;
 
 	//回避時間
-	const static float                        AVOIDANCETIME;
+	const static float                        AVOIDANCE_TIME;
 	//回避のクールタイム
-	const static float                        AVOIDANCECOOLTIME;
+	const static float                        AVOIDANCE_COOL_TIME;
 	//吹っ飛ばされる時間
 	const static float                        BLOW_AWAY_TIME;
 	//無敵時間
 	const static float                        INVINCIBLE_TIME;
 
 	//エネミーを吹っ飛ばす力(1秒間に)
-	const static float                        BLOWAWAYPOWER_ENEMYTARGET;
+	const static float                        BLOW_AWAY_POWER_ENEMYTARGET;
 
 public:  //コンスト・デスト
 	Player(const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRang);
@@ -161,7 +163,7 @@ private:  //メンバ変数
 	//吹っ飛ぶ力(1秒間)
 	float                                           m_blowAwayPower;
 	//吹っ飛び時間の計測
-	float                                           m_blowAwayTime;
+	float                                           m_blowAwayTimer;
 
 	//1フレームにかかった時間(合計すると1秒になる)
 	float                                           m_elapsedTime;

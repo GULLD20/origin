@@ -28,7 +28,7 @@ public:
 		//フレーム
 		float                            flame;
 		//攻撃後の次のコンボまでの時間
-		float                            betweenAttacksTime;
+		float                            betweenAttacksTimer;
 		//攻撃直後
 		bool                             afterTheAttack;
 	};

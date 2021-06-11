@@ -10,8 +10,31 @@
   Resources\Model\Map\space.fbx
   Resources\Model\Player\testSword.fbx
   Resources\Model\Shadow.fbx
-  ScreenCapture.cpp
-c:\users\s192036\desktop\gt2\就職作品\3dゲーム\origin\screencapture\screencapture.cpp(216): warning C4244: '初期化中': 'double' から 'std::size_t' への変換です。データが失われる可能性があります。
+  Game.cpp
+  コードを生成中...
+  スキップ中... (関連する変更は検出されませんでした)
+  Main.cpp
+  Stage.cpp
+  TitleState.cpp
+  PlayState.cpp
+  コードを生成中...
+  Stage1.cpp
+  Player.cpp
+  CharacterMapList.cpp
+  Enemy.cpp
+  Character.cpp
+  コードを生成中...
+  Weapon.cpp
+  Stamp.cpp
+  Rowling.cpp
+  LongRange.cpp
+  LongRangeRowling.cpp
+  Goblin.cpp
+  コードを生成中...
+  Sword.cpp
+  Spear.cpp
+  Bow.cpp
+  コードを生成中...
   origin.vcxproj -> C:\Users\s192036\Desktop\GT2\就職作品\3Dゲーム\Debug\origin.exe
   origin.vcxproj -> C:\Users\s192036\Desktop\GT2\就職作品\3Dゲーム\Debug\origin.pdb (Full PDB)
   サブディレクトリまたはファイル Debug は既に存在します。

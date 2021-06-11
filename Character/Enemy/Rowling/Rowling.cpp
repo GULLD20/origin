@@ -11,7 +11,7 @@
 //攻撃時間
 const float Rowling::ATTACK_TIME = 3.0f;
 //攻撃範囲
-const float Rowling::ATTACKRANGE = 50.0f;
+const float Rowling::ATTACK_RANGE = 50.0f;
 //攻撃間隔
 const int Rowling::ATTACK_INTERVAL = 2;
 //戦闘範囲
@@ -114,7 +114,7 @@ void Rowling::EffectInitialize()
 	m_pName->SetTextureSizeBR(DirectX::SimpleMath::Vector2(1.0f, 0.5f));
 
 	m_pAttackLine->InitializeNormal(5, DirectX::SimpleMath::Vector3(0, 0, 0));
-	DirectX::SimpleMath::Vector3 scale = DirectX::SimpleMath::Vector3(0.5f, 1.0f, (ATTACKRANGE * 0.5f));
+	DirectX::SimpleMath::Vector3 scale = DirectX::SimpleMath::Vector3(0.5f, 1.0f, (ATTACK_RANGE * 0.5f));
 
 	m_pAttackLine->SetScale(scale);
 
@@ -155,7 +155,7 @@ void Rowling::EffectUpdate(const DX::StepTimer &timer)
 		m_pAttackLine->SetPos(m_charaData.pos
 			+ (DirectX::SimpleMath::Vector3::Down * 1.35f)
 			+ DirectX::SimpleMath::Vector3::Transform(
-				DirectX::SimpleMath::Vector3::Forward*(ATTACKRANGE * 0.5f)
+				DirectX::SimpleMath::Vector3::Forward*(ATTACK_RANGE * 0.5f)
 				, m_charaData.rotation));
 	}
 
@@ -266,7 +266,7 @@ void Rowling::Attack()
 	m_oldPos = m_charaData.pos;
 
 	//攻撃時間の計算(スロウ状態のときは合わせて計算も遅らせる)
-	m_attackTime += m_elapsedTime * m_speedCal;
+	m_attackTimer += m_elapsedTime * m_speedCal;
 
 	//キャラクターのデータを保持しているリストを取得
 	CharacterMapList* list = GameContext<CharacterMapList>::Get();
@@ -414,7 +414,7 @@ void Rowling::PlayerJustAvoidance()
 void Rowling::EndAttack()
 {
 	m_attack_start_end = false;
-	m_attackTime = 0.0f;
+	m_attackTimer = 0.0f;
 	m_attackInterval = 0.0f;
 	m_charaData.state = State::Idle;
 	m_setAttackLine = false;
@@ -493,7 +493,7 @@ bool  Rowling::ReflectNearlyEqual_Old_Now_Pos()
 //反射の終了処理
 bool Rowling::EndReflect()
 {
-	if (m_attackTime >= ATTACK_TIME)
+	if (m_attackTimer >= ATTACK_TIME)
 	{
 		//攻撃終了処理
 		EndAttack();

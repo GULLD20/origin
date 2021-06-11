@@ -223,7 +223,7 @@ public:
 	//攻撃の開始・終了判定
 	bool                                            m_attack_start_end;
 
-	float                                           m_attackTime;
+	float                                           m_attackTimer;
 
 	//攻撃の間隔
 	float                                           m_attackInterval;
@@ -234,7 +234,7 @@ public:
 	//スロウ状態か
 	bool                                            m_justAvoidance;
 	//スロウ状態が終了するまでの時間
-	float                                           m_justAvoidanceTime;
+	float                                           m_justAvoidanceTimer;
 
 	//プレイヤーのID
 	int                                             m_playerID;
@@ -252,5 +252,5 @@ public:
 	//吹っ飛ぶ力(1秒間)
 	float                                           m_blowAwayPower;
 	//吹っ飛び時間の計測
-	float                                           m_blowAwayTime;
+	float                                           m_blowAwayTimer;
 };

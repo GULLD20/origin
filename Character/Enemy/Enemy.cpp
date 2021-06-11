@@ -126,7 +126,7 @@ void Enemy::Initialize()
 	m_checkCamera = false;
 
 	//1回の攻撃に使うフレームの確認
-	m_attackTime = 0.0f;
+	m_attackTimer = 0.0f;
 
 	//攻撃中かの判定
 	m_attack_start_end = false;
@@ -142,12 +142,12 @@ void Enemy::Initialize()
 	//無敵状態
 	m_invincible = false;
 	//無敵時間
-	m_invincibleTime = 0.0f;
+	m_invincibleTimer = 0.0f;
 	//1回の攻撃で敵に1回だけダメージ処理をさせるため
 	m_hitAttack = false;
 
 	m_justAvoidance = false;
-	m_justAvoidanceTime = 0.0f;
+	m_justAvoidanceTimer = 0.0f;
 	//m_justAvoidanceFlameControl = 0;
 
 	//プレイヤーのIDの初期化
@@ -173,7 +173,7 @@ void Enemy::Initialize()
 	//吹っ飛ぶ力(1秒間)
 	m_blowAwayPower = 0.0f;
 	//吹っ飛び時間の計測
-	m_blowAwayTime = 0.0f;
+	m_blowAwayTimer = 0.0f;
 
 	//派生クラスの初期化処理
 	SubInitialize();
@@ -347,14 +347,14 @@ void Enemy::JustAvoidanceUpdate()
 	//ジャスト回避中
 	if (m_justAvoidance)
 	{
-		m_justAvoidanceTime += m_elapsedTime;
+		m_justAvoidanceTimer += m_elapsedTime;
 
 		//3秒たったら
-		if (m_justAvoidanceTime >= SLOW_TIME)
+		if (m_justAvoidanceTimer >= SLOW_TIME)
 		{
 			//通常状態に戻す
 			m_justAvoidance = false;
-			m_justAvoidanceTime = 0.0f;
+			m_justAvoidanceTimer = 0.0f;
 			m_speedCal = NORMAL_CAL;
 		}
 	}
@@ -368,14 +368,14 @@ void Enemy::InvincibleUpdate()
 	if (m_invincible)
 	{
 		//無敵時間の判定
-		if (m_invincibleTime >= INVINCIBLE_TIME)
+		if (m_invincibleTimer >= INVINCIBLE_TIME)
 		{
 			m_invincible = false;
-			m_invincibleTime = 0.0f;
+			m_invincibleTimer = 0.0f;
 		}
 		else
 		{
-			m_invincibleTime += m_elapsedTime;
+			m_invincibleTimer += m_elapsedTime;
 		}
 	}
 }
@@ -650,17 +650,17 @@ void Enemy::BlowAwayMove()
 	}
 
 	//吹っ飛び時間終了
-	if (m_blowAwayTime >= BLOW_AWAY_TIME)
+	if (m_blowAwayTimer >= BLOW_AWAY_TIME)
 	{
 		m_charaData.state = State::Idle;
 		m_blowAwayRotation = DirectX::SimpleMath::Matrix::Identity;
 		m_blowAwayPower = 0.0f;
-		m_blowAwayTime = 0.0f;
+		m_blowAwayTimer = 0.0f;
 		m_playerAttackCombLast = false;
 	}
 	else
 	{
-		m_blowAwayTime += m_elapsedTime;
+		m_blowAwayTimer += m_elapsedTime;
 	}
 }
 
@@ -669,6 +669,6 @@ void Enemy::StartSlow()
 {
 	//スロウ状態に変更
 	m_justAvoidance = true;
-	m_justAvoidanceTime = 0.0f;
+	m_justAvoidanceTimer = 0.0f;
 	m_speedCal = SLOW_CAL;
 }

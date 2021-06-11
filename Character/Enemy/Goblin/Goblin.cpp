@@ -11,7 +11,7 @@
 //UŒ‚ŠÔ
 const float Goblin::ATTACK_TIME = 0.15f;
 //UŒ‚”ÍˆÍ
-const float Goblin::ATTACKRANGE = 5.0f;
+const float Goblin::ATTACK_RANGE = 5.0f;
 //UŒ‚ŠÔŠu
 const int Goblin::ATTACK_INTERVAL = 1;
 //í“¬”ÍˆÍ
@@ -105,7 +105,7 @@ void Goblin::EffectInitialize()
 	m_pName->SetTextureSizeBR(DirectX::SimpleMath::Vector2(1.0f, 0.5f));
 
 	m_pAttackLine->InitializeNormal(5, DirectX::SimpleMath::Vector3(0, 0, 0));
-	DirectX::SimpleMath::Vector3 scale = DirectX::SimpleMath::Vector3(0.5f, 1.0f, (ATTACKRANGE * 0.5f));
+	DirectX::SimpleMath::Vector3 scale = DirectX::SimpleMath::Vector3(0.5f, 1.0f, (ATTACK_RANGE * 0.5f));
 
 	m_pAttackLine->SetScale(scale);
 
@@ -146,7 +146,7 @@ void Goblin::EffectUpdate(const DX::StepTimer &timer)
 		m_pAttackLine->SetPos(m_charaData.pos
 			+ (DirectX::SimpleMath::Vector3::Down * 1.35f)
 			+ DirectX::SimpleMath::Vector3::Transform(
-				DirectX::SimpleMath::Vector3::Forward*(ATTACKRANGE * 0.5f)
+				DirectX::SimpleMath::Vector3::Forward*(ATTACK_RANGE * 0.5f)
 				, m_charaData.rotation));
 	}
 
@@ -237,7 +237,7 @@ void Goblin::Battle()
 //UŒ‚ˆ—
 void Goblin::Attack()
 {
-	float speedBase = ATTACKRANGE / ATTACK_TIME;
+	float speedBase = ATTACK_RANGE / ATTACK_TIME;
 
 	//UŒ‚’†‚ÌˆÚ“®‹——£
 	DirectX::SimpleMath::Vector3 moveVec =
@@ -248,10 +248,10 @@ void Goblin::Attack()
 	//m_speedCal‚ÍƒXƒƒEó‘Ô‚Ì‚Æ’Êíó‘Ô‚Ì‚ÌŠÔ‚ÌŒvZ‘¬“x‚ğ•Ï‚¦‚é‚½‚ß
 	m_charaData.pos += ((moveVec*m_speedCal)*m_elapsedTime);
 	//UŒ‚ŠÔ‚ÌŒvZ
-	m_attackTime += (m_elapsedTime*m_speedCal);
+	m_attackTimer += (m_elapsedTime*m_speedCal);
 
 	//UŒ‚ŠÔ‚ªI—¹‚µ‚½‚ç
-	if (m_attackTime >= ATTACK_TIME)
+	if (m_attackTimer >= ATTACK_TIME)
 	{
 		//UŒ‚I—¹ˆ—
 		EndAttack();
@@ -392,10 +392,10 @@ void Goblin::PlayerJustAvoidance()
 				DirectX::SimpleMath::Vector3::Forward,
 				m_charaData.rotation)
 			//’†SˆÊ’u‚É‚¸‚ç‚·‚½‚ß‚É’·‚³‚Ì”¼•ª‚ğ‹‚ß‚é‚½‚ß‚É0.5f‚ğ‚©‚¯‚é
-			*(ATTACKRANGE*0.5f);
+			*(ATTACK_RANGE*0.5f);
 
 		//UŒ‚”ÍˆÍ‚ğVector3Œ^‚É’¼‚·
-		DirectX::SimpleMath::Vector3 EnemyAttackAreaBase = DirectX::SimpleMath::Vector3(2.0f, 1.0f, -ATTACKRANGE);
+		DirectX::SimpleMath::Vector3 EnemyAttackAreaBase = DirectX::SimpleMath::Vector3(2.0f, 1.0f, -ATTACK_RANGE);
 
 		//UŒ‚”ÍˆÍ‚ÌŒ»İ‚Ì‘å‚«‚³‚ğ‹‚ß‚é
 		DirectX::SimpleMath::Vector3 AttackArea =
@@ -435,7 +435,7 @@ void Goblin::PlayerJustAvoidance()
 void Goblin::EndAttack()
 {
 	m_attack_start_end = false;
-	m_attackTime = 0.0f;
+	m_attackTimer = 0.0f;
 	m_attackInterval = 0.0f;
 	m_charaData.state = State::Idle;
 }

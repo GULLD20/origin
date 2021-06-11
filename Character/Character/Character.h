@@ -107,7 +107,7 @@ public:
 	//–³“G”»’è
 	bool                            m_invincible;
 	//–³“GŠÔ
-	float                           m_invincibleTime;
+	float                           m_invincibleTimer;
 	//UŒ‚‚ª“–‚½‚Á‚½”»’è
 	bool                            m_hitAttack;
 	//ƒ^ƒO

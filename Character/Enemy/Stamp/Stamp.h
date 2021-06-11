@@ -15,7 +15,7 @@ public:
 
 public:
 	//攻撃範囲
-	const static float ATTACKRANGE;
+	const static float ATTACK_RANGE;
 	//攻撃時のジャンプの時間
 	const static float ATTACKJUMPTIME;
 	//攻撃時の移動の時間
@@ -108,11 +108,11 @@ private:
 	DirectX::SimpleMath::Vector3 m_startMovePos;
 
 	//攻撃のジャンプの時間計測
-	float                        m_attackJumpTime;
+	float                        m_attackJumpTimer;
 	//攻撃の移動の時間計測
-	float                        m_attackMoveTime;
+	float                        m_attackMoveTimer;
 	//攻撃の落下の時間計測
-	float                        m_attackFallTime;
+	float                        m_attackFallTimer;
 
 	//攻撃時の各判定
 	//ジャンプ終了

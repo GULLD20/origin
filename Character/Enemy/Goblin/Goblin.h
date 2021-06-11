@@ -16,7 +16,7 @@ public:
 	//UŒ‚ŠÔ
 	const static float ATTACK_TIME;
 	//UŒ‚”ÍˆÍ
-	const static float ATTACKRANGE;
+	const static float ATTACK_RANGE;
 	//UŒ‚ŠÔŠu
 	const static int   ATTACK_INTERVAL;
 	//í“¬”ÍˆÍ

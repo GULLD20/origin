@@ -60,7 +60,7 @@ void Bow::Initialize()
 	m_weapon.angle = ANGLE[m_weapon.combo];
 	m_weapon.flame = 0.0f;
 	m_weapon.vector = DirectX::SimpleMath::Vector3::Zero;
-	m_weapon.betweenAttacksTime = 0.0f;
+	m_weapon.betweenAttacksTimer = 0.0f;
 	m_weapon.afterTheAttack = false;
 }
 
@@ -85,11 +85,11 @@ void Bow::Update(float elapsedSeconds)
 	if (m_weapon.afterTheAttack)
 	{
 		//UŒ‚Œã‚Ìˆê’èŽžŠÔŒã(Œ»Ý‚Í0.5•b)
-		if (m_weapon.betweenAttacksTime >= BETWEENATTACKSTIME)
+		if (m_weapon.betweenAttacksTimer >= BETWEENATTACKSTIME)
 		{
 			ResetWeaponData();
 		}
-		m_weapon.betweenAttacksTime += elapsedSeconds;
+		m_weapon.betweenAttacksTimer += elapsedSeconds;
 	}
 }
 
@@ -174,7 +174,7 @@ void Bow::ResetWeaponData()
 	m_weapon.angle = ANGLE[m_weapon.combo];
 	m_weapon.flame = 0.0f;
 	m_weapon.attack = false;
-	m_weapon.betweenAttacksTime = 0.0f;
+	m_weapon.betweenAttacksTimer = 0.0f;
 	m_weapon.afterTheAttack = false;
 }
 

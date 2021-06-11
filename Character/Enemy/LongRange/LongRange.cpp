@@ -10,7 +10,7 @@
 //UŒ‚ŽžŠÔ
 const float LongRange::ATTACK_TIME = 1.0f;
 //UŒ‚”ÍˆÍ
-const float LongRange::ATTACKRANGE = 20.0f;
+const float LongRange::ATTACK_RANGE = 20.0f;
 //UŒ‚ŠÔŠu
 const int LongRange::ATTACK_INTERVAL = 2;
 //í“¬”ÍˆÍ
@@ -116,7 +116,7 @@ void LongRange::EffectInitialize()
 	m_pName->SetTextureSizeBR(DirectX::SimpleMath::Vector2(1.0f, 0.5f));
 
 	m_pAttackLine->InitializeNormal(5, DirectX::SimpleMath::Vector3(0, 0, 0));
-	DirectX::SimpleMath::Vector3 scale = DirectX::SimpleMath::Vector3(0.15f, 1.0f, (ATTACKRANGE * 0.5f));
+	DirectX::SimpleMath::Vector3 scale = DirectX::SimpleMath::Vector3(0.15f, 1.0f, (ATTACK_RANGE * 0.5f));
 
 	m_pAttackLine->SetScale(scale);
 
@@ -159,7 +159,7 @@ void LongRange::EffectUpdate(const DX::StepTimer &timer)
 	{
 		m_pAttackLine->SetPos(m_charaData.pos
 			+ DirectX::SimpleMath::Vector3::Transform(
-				DirectX::SimpleMath::Vector3::Forward*(ATTACKRANGE * 0.5f)
+				DirectX::SimpleMath::Vector3::Forward*(ATTACK_RANGE * 0.5f)
 				, m_charaData.rotation));
 	}
 
@@ -413,7 +413,7 @@ void LongRange::PlayerJustAvoidance()
 void LongRange::EndAttack()
 {
 	m_attack_start_end = false;
-	m_attackTime = 0.0f;
+	m_attackTimer = 0.0f;
 	m_attackInterval = 0.0f;
 	m_charaData.state = State::Idle;
 }
