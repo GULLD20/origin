@@ -11,9 +11,7 @@
 ///======================================================
 class Stamp : public Enemy
 {
-public:
-
-public:
+public:   //定数
 	//攻撃範囲
 	const static float ATTACK_RANGE;
 	//攻撃時のジャンプの時間
@@ -45,10 +43,11 @@ public:
 	//通常状態の計算用の数値
 	const static float NORMAL_CAL;
 
-public:
+public:   //コンスト・デスト
 	Stamp(const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRange);
 	~Stamp();
 
+public:   //関数（override）
 	//エフェクトの作成
 	void CreateEffect() override;
 
@@ -88,7 +87,7 @@ public:
 	//攻撃終了
 	void EndAttack()override;
 
-private:
+private:   //関数（追加）
 	//攻撃時の処理
 	//ジャンプ
 	void AttackJump();
@@ -96,7 +95,8 @@ private:
 	void AttackMove();
 	//落下
 	void AttackFall();
-private:
+
+private:   //メンバ変数
 	//攻撃範囲
 	std::unique_ptr<AttackArea>  m_pAttackArea;
 

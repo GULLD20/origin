@@ -8,7 +8,7 @@
 
 class LongRangeAttack
 {
-public:
+public:   //構造体
 	struct Bullet
 	{
 		//弾の位置
@@ -25,7 +25,7 @@ public:
 		bool active;
 	};
 
-public:
+public:   //定数
 	//移動速度
 	const static float                        SPEED;
 	//当たり判定の中心から先端の長さ(Vector3)
@@ -33,11 +33,11 @@ public:
 	//当たり判定の円の大きさ
 	const static float                        CIRCLE_SIZE;
 
-public:
-	//コンスト・デスト
+public:   //コンスト・デスト
 	LongRangeAttack();
 	~LongRangeAttack();
 
+public:   //関数（public）
 	//モデルの作成
 	void CreatModel();
 	//初期化処理
@@ -60,7 +60,7 @@ public:
 
 	void SetSpeedCal(float speedCal) { m_speedCal = speedCal; };
 
-private:
+private:   //関数（private）
 	//移動処理
 	void Move(int select, float elapsedTime);
 	//攻撃終了処理
@@ -70,7 +70,7 @@ private:
 	//行列の設定
 	void MatrixSetting(int select);
 
-private:
+private:   //メンバ変数
 	//弾
 	std::vector<Bullet>             m_bulletList;
 	//モデル

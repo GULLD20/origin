@@ -26,6 +26,7 @@ FollowCamera::~FollowCamera()
 {
 }
 
+//‰Šú‰»
 void FollowCamera::Initialize()
 {
 	//—h‚ê‚é•ûŒü
@@ -34,29 +35,32 @@ void FollowCamera::Initialize()
 	m_shakeCameraPos = DirectX::SimpleMath::Vector3::Zero;;
 	//—h‚ê”»’è
 	m_shake = false;
+	//ÀÛ‚ÌƒJƒƒ‰‚Ì—h‚ê
 	m_shakeRange = 0.0f;
+	//—h‚ê‚Ì”½“]
 	m_shakeReverseCheck = false;
+	//—h‚ê‚Ì”ÍˆÍ
 	m_rangeContraction = 0.0f;
 }
 
+//XVˆ—
 void FollowCamera::Update()
 {
-	DirectX::SimpleMath::Vector3 up(0.0f, 1.0f, 0.0f);
-
-	//m_EysPos += (m_refEyePos - m_EysPos) * 0.05f;
-	//m_TargetPos += (m_refTargetPos - m_TargetPos) * 0.05f;
-
+	//ƒJƒƒ‰‚Ì—h‚ê‚½‚Æ‚«‚ÌˆÊ’u‚Ì‰Šú‰»
 	m_shakeCameraPos = DirectX::SimpleMath::Vector3::Zero;
 
+	//—h‚ê‚éˆ—‚ğs‚¤‚©”»’è
 	if(m_shake)
 	{
+		//—h‚ê‚éˆ—
 		Shake();
 	}
 
-	m_viewMatrix = DirectX::SimpleMath::Matrix::CreateLookAt(m_eyePos + m_shakeCameraPos, m_targetPos + m_shakeCameraPos, up);
+	//ƒ}ƒgƒŠƒbƒNƒX‚Ìİ’è
+	m_viewMatrix = DirectX::SimpleMath::Matrix::CreateLookAt(m_eyePos + m_shakeCameraPos, m_targetPos + m_shakeCameraPos, m_up);
 }
 
-//ŠJn—h‚ê(ˆø”‚Í—h‚ê‚é•ûŒü)
+//—h‚ê‚ÌŠJn(ˆø”‚Í—h‚ê‚é•ûŒü)
 void FollowCamera::StartShake(const DirectX::SimpleMath::Vector3 &vec)
 {
 	m_shapedWidth = vec;
@@ -66,7 +70,7 @@ void FollowCamera::StartShake(const DirectX::SimpleMath::Vector3 &vec)
 //—h‚êˆ—
 void FollowCamera::Shake()
 {
-	//—h‚ê‚é”ÍˆÍ‚ğ
+	//ƒJƒƒ‰‚ÌˆÊ’u‚Ì’²®
 	if (m_shakeReverseCheck)
 	{
 		m_shakeRange += SHAPED_WIDTH;
@@ -76,7 +80,7 @@ void FollowCamera::Shake()
 		m_shakeRange -= SHAPED_WIDTH;
 	}
 
-	//
+	//0‚ğ’†S‚Æ‚µ‚Ä•ª‚¯‚é
 	if (m_shakeRange >= 0.0f)
 	{
 		m_shakeCameraPos = DirectX::SimpleMath::Vector3::Lerp(DirectX::SimpleMath::Vector3::Zero, m_shapedWidth, m_shakeRange);
@@ -89,7 +93,7 @@ void FollowCamera::Shake()
 	//”½“]ˆ—‚Æ—h‚ê‚Ì”ÍˆÍ‚ğ‹·‚ß‚é
 	if (MAX_SHAKE_RANGE - m_rangeContraction < m_shakeRange)
 	{
-
+		//”½“]
 		m_shakeReverseCheck = !m_shakeReverseCheck;
 		//”ÍˆÍ‚Ìûk
 		m_rangeContraction += CONTRACTION_RANGE;

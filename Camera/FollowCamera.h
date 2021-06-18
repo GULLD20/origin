@@ -4,21 +4,24 @@
 
 class FollowCamera
 {
-public:
+public:   //定数
 	//揺れる範囲(最大)
 	const static int MAX_SHAKE_RANGE;
 	//範囲の収縮する値
 	const static float CONTRACTION_RANGE;
 	//揺れる幅
 	const static float SHAPED_WIDTH;
-public:
+public:   //コンスト・デスト
 	FollowCamera();
 	~FollowCamera();
 
+public:  //関数
+	//初期化
 	void Initialize();
+	//更新処理
 	void Update();
 
-	//開始揺れ(引数は揺れる方向)
+	//揺れの開始(引数は揺れる方向)
 	void StartShake(const DirectX::SimpleMath::Vector3 &vec);
 	//揺れ処理
 	void Shake();
@@ -41,7 +44,7 @@ public:
 	//カメラの位置の設定
 	void SetEyePosition(const DirectX::SimpleMath::Vector3 &eyePos);
 
-private:
+private:   //メンバ変数
 	//ビュー行列
 	DirectX::SimpleMath::Matrix  m_viewMatrix;
 	//射影行列

@@ -21,13 +21,9 @@
 #include "../../MyEffect/Effect2D/Enemy/EnemyDeth.h"
 #include "../../MyEffect/Effect2D/Enemy/EnemyHit.h"
 
-class DX::DeviceResources;
-
 class Enemy: public Character
 {
-public:
-
-public:
+public:   //定数
 	//敵の大きさ上と下
 	const static DirectX::SimpleMath::Vector3  ENEMYSIZE_TOP_DOWN;
 
@@ -45,15 +41,12 @@ public:
 
 	//スロウ時間
 	const static float                         SLOW_TIME;
-public: //コンスト　デスト
+
+public:   //コンスト・デスト
 	Enemy(const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRange);
 	virtual ~Enemy();
 
-public: //基底クラスを継承した関数
-
-	//基底クラスで書く関数
-	//モデルの作成
-	void CreateModel(const wchar_t* fileName);
+public:   //関数（override）
 	//初期化処理
 	void Initialize()override;
 	//更新処理
@@ -69,7 +62,10 @@ public: //基底クラスを継承した関数
 	//吹っ飛び処理
 	void BlowAwayMove()override;
 
-public:
+public:   //関数
+	//モデルの作成
+	void CreateModel(const wchar_t* fileName);
+
 	//各Update関数-----------------
 	//State関連の更新処理
 	void StateUpdate();
@@ -130,7 +126,7 @@ public:
 	//スロウ状態か取得
 	bool GetSlow() const { return m_justAvoidance; };
 
-public:
+public:   //関数（virtual）
 	//派生クラスで書く関数
 	//エフェクトの作成
 	virtual void CreateEffect() = 0;
@@ -169,7 +165,7 @@ public:
 	//攻撃終了
 	virtual void EndAttack() = 0;
 
-public:
+public:   //メンバ変数（public）
 	//相手を発見
 	bool                                            m_discovery;
 	//エネミーが生きているか判定

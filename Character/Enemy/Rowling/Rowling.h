@@ -14,9 +14,7 @@
 ///======================================================
 class Rowling : public Enemy
 {
-public:
-
-public:
+public:   //定数
 	//攻撃時間
 	const static float ATTACK_TIME;
 	//攻撃範囲
@@ -43,10 +41,12 @@ public:
 	const static float SLOW_CAL;
 	//通常状態の計算用の数値
 	const static float NORMAL_CAL;
-public:
+
+public:   //コンスト・デスト
 	Rowling(const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRange);
 	~Rowling();
 
+public:   //関数（override）
 	//エフェクトの作成
 	void CreateEffect() override;
 
@@ -86,7 +86,7 @@ public:
 	//攻撃終了
 	void EndAttack()override;
 
-private:
+private:   //関数（追加）
 	//攻撃時の移動範囲を設定
 	void SetAttackLine();
 	//反射処理
@@ -95,7 +95,8 @@ private:
 	bool ReflectNearlyEqual_Old_Now_Pos();
 	//反射の終了処理
 	bool EndReflect();
-private:
+
+private:   //メンバ変数
 	//攻撃範囲
 	std::unique_ptr<AttackLine>  m_pAttackLine;
 

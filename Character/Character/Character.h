@@ -5,7 +5,7 @@
 
 class Character
 {
-public:
+public:   //enum
 	enum State
 	{
 		Idle = 0,      //待機
@@ -19,6 +19,7 @@ public:
 		Deth           //HPがゼロ(自分以外がデータを参照するときに使う)
 	};
 
+public:   //構造体
 	struct CharaacterData
 	{
 		//キャラクターの位置
@@ -47,6 +48,7 @@ public:
 		int                           id;
 	};
 
+public:   //定数
 	//1度
 	const static float                        ONE_DEGREE;
 	//プレイヤーのタグ
@@ -54,10 +56,11 @@ public:
 	//エネミーのタグ
 	const static std::string                  ENEMY_TAG;
 
-public:
+public:   //コンスト・デスト
 	Character(int id, const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRange , const State &state = State::Idle);
 	virtual ~Character();
 
+public:   //関数（virtual）
 	//初期化処理
 	virtual void Initialize() = 0;
 	//更新処理
@@ -72,7 +75,7 @@ public:
 	//吹っ飛び処理
 	virtual void BlowAwayMove() = 0;
 
-public:
+public:   //関数（Get・Set）
 	//位置の取得・設定
 	DirectX::SimpleMath::Vector3 GetPos()const { return m_charaData.pos; }
 	void SetPos(const DirectX::SimpleMath::Vector3 &pos) { m_charaData.pos = pos; }
@@ -101,7 +104,7 @@ public:
 
 	static int GetNextID() { return m_nextID; };
 
-public:
+public:   //メンバ変数（public）
 	CharaacterData                  m_charaData;
 
 	//無敵判定
@@ -113,7 +116,7 @@ public:
 	//タグ
 	std::string                     m_tag;
 
-private:
+private:   //メンバ変数（private）
 	//次のID
 	static int                      m_nextID;
 };

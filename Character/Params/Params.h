@@ -1,7 +1,7 @@
 #pragma once
 class Params
 {
-public:
+public:   //enum
 	//敵の種類
 	enum EnemyTyp
 	{
@@ -11,8 +11,8 @@ public:
 		Stamp,
 		Rowling
 	};
-public:
-	///プレイヤーのステータス;
+
+public:   //定数（プレイヤーのステータス）
 	//攻撃力
 	const static float PLAYER_ATTACK;
 	//体力
@@ -22,8 +22,7 @@ public:
 	//当たり判定の半径
 	const static float PLAYER_RANGE;
 
-public:
-	///ゴブリンのステータス;
+public:   //定数（ゴブリンのステータス）
 	//攻撃力
 	const static float GOBLIN_ATTACK;
 	//体力
@@ -33,8 +32,7 @@ public:
 	//当たり判定の半径
 	const static float GOBLIN_RANGE;
 
-public:
-	///遠距離攻撃の敵のステータス
+public:   //定数（遠距離攻撃の敵のステータス）
 	//攻撃力
 	const static float LONGRANGE_ATTACK;
 	//体力
@@ -43,8 +41,8 @@ public:
 	const static float LONGRANGE_SPEED;
 	//当たり判定の半径
 	const static float LONGRANGE_RANGE;
-public:
-	///回転する遠距離攻撃の敵のステータス
+
+public:   //定数（回転する遠距離攻撃の敵のステータス）
 	//攻撃力
 	const static float LONGRANGEROWLING_ATTACK;
 	//体力
@@ -54,8 +52,7 @@ public:
 	//当たり判定の半径
 	const static float LONGRANGEROWLING_RANGE;
 
-public:
-	///押しつぶす敵のステータス
+public:   //定数（押しつぶす敵のステータス）
 	//攻撃力
 	const static float STAMP_ATTACK;
 	//体力
@@ -65,8 +62,7 @@ public:
 	//当たり判定の半径
 	const static float STAMP_RANGE;
 
-public:
-	///回転攻撃の敵のステータス
+public:   //定数（回転攻撃の敵のステータス）
 	//攻撃力
 	const static float ROWLING_ATTACK;
 	//体力

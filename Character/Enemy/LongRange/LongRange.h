@@ -12,7 +12,7 @@
 ///======================================================
 class LongRange : public Enemy
 {
-public:
+public:   //定数
 	//攻撃時間
 	const static float ATTACK_TIME;
 	//攻撃範囲
@@ -40,10 +40,11 @@ public:
 	//通常状態の計算用の数値
 	const static float NORMAL_CAL;
 
-public:
+public:   //コンスト・デスト
 	LongRange(const DirectX::SimpleMath::Vector3 &pos, float attack, float hp, float speed, float thisRange);
 	~LongRange();
 
+public:   //関数（override）
 	//エフェクトの作成
 	void CreateEffect() override;
 
@@ -83,11 +84,11 @@ public:
 	//攻撃終了
 	void EndAttack()override;
 
-public:
+private:   //関数（追加）
 	//攻撃の当たり判定
 	void HitAttack();
 
-private:
+private:   //メンバ変数
 	//攻撃範囲
 	std::unique_ptr<AttackLine>      m_pAttackLine;
 	//攻撃クラス(弾)

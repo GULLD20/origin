@@ -7,10 +7,11 @@ class Character;
 
 class CharacterMapList
 {
-public:
+public:   //コンスト・デスト
 	CharacterMapList() {};
 	~CharacterMapList() {};
 
+public:   //関数
 	//エンティティを登録する関数
 	void RegisterEntity(Character* entity);
 
@@ -26,7 +27,7 @@ public:
 	//リセット関数
 	void Reset();
 
-private:
+public:   //メンバ変数（public）
 	std::map<int, Character*> m_pObjMapList;
 };
 
